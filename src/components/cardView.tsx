@@ -1,11 +1,13 @@
 import { Card } from 'primereact/card';
 import { Paginator, PaginatorPageChangeEvent } from 'primereact/paginator';
-import { Message } from '../type/message.ts';
+import { Message, MessageSeverity } from '../type/message.ts';
 import { FC, useEffect, useState } from 'react';
 import { truncatedMessage } from '../lib/utils/truncatedMessage.ts';
 import { useWindowSize } from '../hooks/useWindowSize.ts';
 import { calculateNumCardsPerRow } from '../lib/utils/calculateNumCardsPerRow.ts';
 import ImageWrapper from './imageWrapper/imageWrapper.tsx';
+import { Tag } from 'primereact/tag';
+
 
 interface CardViewProps {
   messages: Message[],
@@ -32,6 +34,19 @@ const CardView: FC<CardViewProps> = ({ messages, totalRecords }) => {
     setRows(numCardsPerRow);
   }, [numCardsPerRow]);
 
+  const renderSeverityTag = (severity: MessageSeverity) => {
+    switch (severity) {
+      case MessageSeverity.LOW:
+        return <Tag severity="info" icon="pi pi-info-circle" />;
+      case MessageSeverity.HIGH:
+        return <Tag severity="warning" icon="pi pi-exclamation-triangle" />;
+      case MessageSeverity.CRITICAL:
+        return <Tag severity="danger" icon="pi pi-times" />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="flex flex-column xl:gap-6 sm:gap-2">
       <div
@@ -42,11 +57,13 @@ const CardView: FC<CardViewProps> = ({ messages, totalRecords }) => {
                 footer={ `Сообщение: ${ truncatedMessage(message.message) }` }>
             <div className="flex align-content-center xl:flex-row sm:flex-column sm:justify-content-center sm:gap-4">
               <div className="flex flex-column xl:w-18rem sm:w-full">
-                <span>Важность: { message.severity }</span>
+               <span>
+                  Важность: { renderSeverityTag(message.severity) } { message.severity }
+                </span>
                 <span className="my-auto">Оборудование: { message.machinery }</span>
               </div>
 
-              <ImageWrapper src={message.image} alt={message.responsible} responsible={message.responsible}/>
+              <ImageWrapper src={ message.image } alt={ message.responsible } responsible={ message.responsible } />
 
             </div>
           </Card>
