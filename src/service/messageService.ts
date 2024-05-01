@@ -1,8 +1,8 @@
-import { MessageSeverity } from '../type/message.ts';
+import { Message, MessageSeverity } from '../type/message.ts';
 import { formatMessageDate } from '../lib/utils/formatMessageDate.ts';
 
-export const ProductService = {
-  getProductsData() {
+export const MessageService = {
+  getMessagesData() {
     return [
       {
         id: 1,
@@ -215,26 +215,8 @@ export const ProductService = {
     ]
   },
 
-
-
-  getFilteredProductsMini(searchKeyword: string) {
-    const allProducts = this.getProductsData();
-    const trimmedKeyword = searchKeyword.trim(); // Trim whitespace
-    const filteredProducts = allProducts.filter(product =>
-      product.message.toLowerCase().includes(trimmedKeyword.toLowerCase())
-    );
-
-    return Promise.resolve(filteredProducts);
-  },
-
-  getFilteredProductsCount(searchKeyword: string) {
-    const allProducts = this.getProductsData();
-    const trimmedKeyword = searchKeyword.trim(); // Trim whitespace
-    const filteredProducts = allProducts.filter(product =>
-      product.message.toLowerCase().includes(trimmedKeyword.toLowerCase())
-    );
-    return Promise.resolve(filteredProducts.length);
+  getMessages(): Promise<Message[]> {
+    return Promise.resolve(this.getMessagesData());
   },
 
 };
-

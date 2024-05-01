@@ -1,23 +1,20 @@
 import { Card } from 'primereact/card';
 import { Paginator, PaginatorPageChangeEvent } from 'primereact/paginator';
-import { Message, MessageSeverity } from '../type/message.ts';
+import { MessageSeverity } from '../type/message.ts';
 import { FC, useEffect, useState } from 'react';
 import { truncatedMessage } from '../lib/utils/truncatedMessage.ts';
 import { useWindowSize } from '../hooks/useWindowSize.ts';
 import { calculateNumCardsPerRow } from '../lib/utils/calculateNumCardsPerRow.ts';
 import ImageWrapper from './imageWrapper/imageWrapper.tsx';
 import { Tag } from 'primereact/tag';
+import { useSelector } from 'react-redux';
+import { searchState } from '../store/slice/searchSlice.ts';
 
-
-interface CardViewProps {
-  messages: Message[],
-  totalRecords: number
-}
-
-const CardView: FC<CardViewProps> = ({ messages, totalRecords }) => {
+const CardView: FC = () => {
   const [first, setFirst] = useState(0);
   const [rows, setRows] = useState(6);
   const windowSize = useWindowSize();
+  const { searchResults } = useSelector(searchState);
 
   const onPageChange = (event: PaginatorPageChangeEvent) => {
     setFirst(event.first);
@@ -51,7 +48,7 @@ const CardView: FC<CardViewProps> = ({ messages, totalRecords }) => {
     <div className="flex flex-column xl:gap-6 sm:gap-2">
       <div
         className={ `flex flex-row column-gap-4 row-gap-4 flex-wrap align-items-center xl:justify-content-between sm:justify-content-center` }>
-        { messages.slice(startIndex, endIndex).map((message) => (
+        { searchResults.slice(startIndex, endIndex).map((message) => (
           <Card key={ message.id } className="flex border-1 xl:w-28rem xl:h-17rem sm:w-24rem sm:h-22rem"
                 subTitle={ `Дата: ${ message.date }` }
                 footer={ `Сообщение: ${ truncatedMessage(message.message) }` }>
@@ -69,7 +66,7 @@ const CardView: FC<CardViewProps> = ({ messages, totalRecords }) => {
           </Card>
         )) }
       </div>
-      <Paginator first={ first } rows={ rows } totalRecords={ totalRecords } onPageChange={ onPageChange } leftContent
+      <Paginator first={ first } rows={ rows } totalRecords={ searchResults.length } onPageChange={ onPageChange } leftContent
                  template={ { layout: 'PageLinks' } } />
     </div>
   );

@@ -1,23 +1,21 @@
 import { useEffect, useState } from 'react';
-import { ProductService } from '../service/productService.ts';
+import { MessageService } from '../service/messageService.ts';
 import { Message } from '../type/message.ts';
 
-export const useMessageInterval = (debouncedSearchValue: string) => {
+export const useMessageInterval = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [messagesToShow, setMessagesToShow] = useState<Message[]>([]);
   const [messagesIndex, setMessagesIndex] = useState(0);
 
   useEffect(() => {
-    ProductService.getFilteredProductsCount(debouncedSearchValue).then(() => {
-      ProductService.getFilteredProductsMini(debouncedSearchValue).then(data => {
+        MessageService.getMessages().then(data => {
         setMessages(data);
-        if (data.length > 0) {
-          setMessagesToShow([data[0]]);
-          setMessagesIndex(1);
-        }
+          if (data.length > 0) {
+            setMessagesToShow([data[0]]);
+            setMessagesIndex(1);
+          }
       });
-    });
-  }, [debouncedSearchValue]);
+  }, []);
 
   useEffect(() => {
     const intervalId = setInterval(() => {

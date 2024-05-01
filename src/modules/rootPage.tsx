@@ -1,21 +1,38 @@
 import { SelectButton } from 'primereact/selectbutton';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
-import { useDebounce } from '../hooks/useDebounce.ts';
 import TableView from '../components/tableView.tsx';
 import CardView from '../components/cardView.tsx';
+import { useEffect, useState } from 'react';
+import { setSearchResults } from '../store/slice/searchSlice.ts';
 import { useMessageInterval } from '../hooks/useMessageInterval.ts';
-import { useState } from 'react';
+import { useDebounce } from '../hooks/useDebounce.ts';
+import { setSelectedMessages } from '../store/slice/selectedMessages.ts';
+import { setMessages } from '../store/slice/messagesSlice.ts';
+import { useFilteredMessage } from '../hooks/useFilterredMessage.ts';
+import { useAppDispatch } from '../store/store.ts';
+
 
 const RootPage = () => {
   const options = ['Таблица', 'Карточки'];
   const [value, setValue] = useState(options[0]);
   const [inputValue, setInputValue] = useState('');
   const debouncedSearchValue = useDebounce(inputValue);
-  const messagesToShow = useMessageInterval(debouncedSearchValue);
+  const messagesToShow = useMessageInterval();
+  const dispatch = useAppDispatch();
+
+  useFilteredMessage(debouncedSearchValue);
+
+
+  useEffect(() => {
+    dispatch(setMessages(messagesToShow))
+  }, [messagesToShow]);
+
 
   const handleClear = () => {
     setInputValue('');
+    dispatch(setSearchResults([]))
+    dispatch(setSelectedMessages([]))
   };
 
   return (
@@ -31,9 +48,9 @@ const RootPage = () => {
 
       <div className="xl:my-6 sm:my-3">
         {value === 'Таблица' ? (
-          <TableView messages={messagesToShow} />
+          <TableView />
         ) : (
-          <CardView messages={messagesToShow} totalRecords={messagesToShow.length}/>
+          <CardView />
         )}
       </div>
     </>
