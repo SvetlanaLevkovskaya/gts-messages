@@ -1,0 +1,25 @@
+.container {
+  gap: 2rem;
+  width: 10rem;
+  align-items: end;
+
+  @media (min-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.imageContainer {
+  border: 2px solid gray;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}

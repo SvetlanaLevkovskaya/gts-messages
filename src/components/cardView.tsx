@@ -5,6 +5,7 @@ import { FC, useEffect, useState } from 'react';
 import { truncatedMessage } from '../lib/utils/truncatedMessage.ts';
 import { useWindowSize } from '../hooks/useWindowSize.ts';
 import { calculateNumCardsPerRow } from '../lib/utils/calculateNumCardsPerRow.ts';
+import ImageWrapper from './imageWrapper/imageWrapper.tsx';
 
 interface CardViewProps {
   messages: Message[],
@@ -44,10 +45,9 @@ const CardView: FC<CardViewProps> = ({ messages, totalRecords }) => {
                 <span>Важность: { message.severity }</span>
                 <span className="my-auto">Оборудование: { message.machinery }</span>
               </div>
-              <div className="flex lg:flex-column xl:w-10rem xl:align-items-end sm:flex-column sm:gap-2">
-                <img src={ message.image } alt={ message.responsible } style={ { width: '5rem' } } />
-                <span>{ message.responsible }</span>
-              </div>
+
+              <ImageWrapper src={message.image} alt={message.responsible} responsible={message.responsible}/>
+
             </div>
           </Card>
         )) }
