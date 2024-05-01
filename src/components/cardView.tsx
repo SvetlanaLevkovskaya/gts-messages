@@ -37,11 +37,11 @@ const CardView: FC<CardViewProps> = ({ messages, totalRecords }) => {
       <div
         className={ `flex flex-row column-gap-4 row-gap-4 flex-wrap align-items-center xl:justify-content-between sm:justify-content-center` }>
         { messages.slice(startIndex, endIndex).map((message) => (
-          <Card key={ message.id } className="flex border-1 xl:w-28rem xl:h-17rem sm:w-24rem sm:h-22rem"
+          <Card key={ message.id } className="flex border-1 xl:w-28rem xl:h-17rem sm:w-24rem sm:h-24rem"
                 subTitle={ `Дата: ${ message.date }` }
                 footer={ `Сообщение: ${ truncatedMessage(message.message) }` }>
-            <div className="flex align-content-center xl:flex-row sm:flex-column sm:gap-4">
-              <div className="flex flex-column w-18rem">
+            <div className="flex align-content-center xl:flex-row sm:flex-column sm:justify-content-center sm:gap-4">
+              <div className="flex flex-column xl:w-18rem sm:w-full">
                 <span>Важность: { message.severity }</span>
                 <span className="my-auto">Оборудование: { message.machinery }</span>
               </div>

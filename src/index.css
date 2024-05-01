@@ -22,20 +22,28 @@
   background: #ccccc9;
 }
 
-.p-card-body {
-  width: 100%;
-  padding-right: 1.5rem;
-}
-
 .p-datatable-tbody > tr > td {
   border-color: #323130;
 }
 
-
-
 .p-datatable-tbody > tr.p-row-odd {
   background: #edebe9;
 }
+
+.p-card {
+  display: flex;
+  width: 100%;
+}
+
+.p-card-body {
+  width: 100%;
+}
+
+.p-card-footer {
+  padding: 0;
+}
+
+
 
 
 

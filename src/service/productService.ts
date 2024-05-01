@@ -6,11 +6,11 @@ export const ProductService = {
     return [
       {
         id: 1,
-        date: formatMessageDate('2024-05-05T23:50:00'),
-        severity: MessageSeverity.CRITICAL,
-        machinery: 'Сервер Вегас',
-        message: 'Сервер Вегас недоступен',
-        responsible: 'Смирнов А.А.',
+        date: formatMessageDate(),
+        severity: MessageSeverity.HIGH,
+        machinery: 'Сетевое хранилище',
+        message: 'При работе сетевого хранилища возникла серьезная проблема, которая требует немедленного вмешательства. Недоступность хранилища может привести к потере данных и существенному снижению производительности системы. Необходимо принять срочные меры для восстановления работоспособности хранилища и предотвращения возможных последствий. Щербакова С.В. возложена ответственность за устранение этой проблемы в кратчайшие сроки.',
+        responsible: 'Щербакова С.В.',
         image: 'src/assets/react.svg',
       },
       {
@@ -204,13 +204,14 @@ export const ProductService = {
       },
       {
         id: 21,
-        date: formatMessageDate(),
-        severity: MessageSeverity.HIGH,
-        machinery: 'Сетевое хранилище',
-        message: 'Сбой в работе сетевого хранилища',
-        responsible: 'Щербакова С.В.',
+        date: formatMessageDate('2024-05-05T23:50:00'),
+        severity: MessageSeverity.CRITICAL,
+        machinery: 'Сервер Вегас',
+        message: 'Сервер Вегас недоступен',
+        responsible: 'Смирнов А.А.',
         image: 'src/assets/react.svg',
       },
+
     ]
   },
 
