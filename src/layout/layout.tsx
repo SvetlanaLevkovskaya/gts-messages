@@ -7,7 +7,7 @@ interface LayoutProps extends PropsWithChildren<object> {
 export const Layout: FC<LayoutProps> = ({ children, className = "" }) => {
   return (
     <div
-      className={`xl:p-4 xl:pr-8 sm:p-4  ${className}`}>
+      className={`xl:p-4 xl:pr-8 sm:p-2  ${className}`}>
       {children}
     </div>
   );

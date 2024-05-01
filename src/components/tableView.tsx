@@ -1,7 +1,9 @@
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Message } from '../type/message.ts';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
+import { useWindowSize } from '../hooks/useWindowSize.ts';
+import { calculateNumTableRows } from '../lib/utils/calculateNumTableRows.ts';
 
 interface TableViewProps {
   messages: Message[],
@@ -9,6 +11,12 @@ interface TableViewProps {
 
 const TableView: FC<TableViewProps> = ({ messages }) => {
   const [loading, setLoading] = useState(true);
+  const [rows, setRows] = useState(10);
+  const windowSize = useWindowSize();
+
+  useEffect(() => {
+    setRows(calculateNumTableRows(windowSize.width));
+  }, [windowSize.width]);
 
   setTimeout(() => {
     setLoading(false);
@@ -16,7 +24,7 @@ const TableView: FC<TableViewProps> = ({ messages }) => {
 
   return (
     <DataTable value={ messages } size="small" paginator paginatorLeft paginatorTemplate={ { layout: 'PageLinks' } }
-               loading={ loading } stripedRows showGridlines rows={ 12 }>
+               loading={ loading } stripedRows  rows={ rows }>
       <Column field="date" header="Дата"></Column>
       <Column field="severity" header="Важность"></Column>
       <Column field="machinery" header="Оборудование"></Column>

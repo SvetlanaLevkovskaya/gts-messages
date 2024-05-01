@@ -29,7 +29,7 @@ const RootPage = () => {
         </div>
       </div>
 
-      <div className="my-6">
+      <div className="xl:my-6 sm:my-3">
         {value === 'Таблица' ? (
           <TableView messages={messagesToShow} />
         ) : (
