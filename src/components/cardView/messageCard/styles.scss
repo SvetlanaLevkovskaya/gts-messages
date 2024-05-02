@@ -9,6 +9,9 @@
   &-footer {
     padding: 0;
   }
+  &.selected {
+     background-color: #e1dfdd;
+  }
 }
 
 .p-tag {

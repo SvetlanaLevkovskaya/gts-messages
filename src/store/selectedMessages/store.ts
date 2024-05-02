@@ -10,11 +10,16 @@ const selectedMessagesSlice = createSlice({
     setSelectedMessages(state, action: PayloadAction<Message[]>) {
       state.selectedMessages = action.payload
     },
+    toggleSelectedMessages: (state, action: PayloadAction<Message>) => {
+      const existingMessageIndex = state.selectedMessages.findIndex((card) => card.id === action.payload.id);
+      if (existingMessageIndex !== -1) {
+        state.selectedMessages = state.selectedMessages.filter((card) => card.id !== action.payload.id);
+      } else {
+        state.selectedMessages = [...state.selectedMessages, action.payload];
+      }
+    },
   },
-});
 
-/*export const { setSelectedMessages } = selectedMessagesSlice.actions;
-export const selectedState = (state: RootState) => state.selectedMessages;
-export default selectedMessagesSlice.reducer;*/
+});
 
 export const { name, reducer, actions } = selectedMessagesSlice;

@@ -1,18 +1,15 @@
-import { SelectButton } from 'primereact/selectbutton';
-import { InputText } from 'primereact/inputtext';
-import { Button } from 'primereact/button';
-import TableView from '../components/tableView/tableView.tsx';
-import CardView from '../components/cardView/cardView.tsx';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useMemo} from 'react';
 import { useMessageInterval } from '../hooks/useMessageInterval.ts';
 import { useDebounce } from '../hooks/useDebounce.ts';
 import { useFilteredMessage } from '../hooks/useFilterredMessage.ts';
 import { useAppDispatch } from '../store';
 import { options } from './constants.ts';
 import { messagesActions } from '../store/messages';
-import { searchActions } from '../store/search';
 import { selectedMessagesActions } from '../store/selectedMessages';
 import { useWindowSize } from '../hooks/useWindowSize.ts';
+import TableView from '../components/tableView/tableView.tsx';
+import CardView from '../components/cardView/cardView.tsx';
+import FilterControls from '../components/filterControls/filterControls.tsx';
 
 
 const RootPage = () => {
@@ -26,33 +23,27 @@ const RootPage = () => {
   useFilteredMessage(debouncedSearchValue);
 
   useEffect(() => {
-    dispatch(messagesActions.setMessages(messagesToShow))
+    dispatch(messagesActions.setMessages(messagesToShow));
   }, [dispatch, messagesToShow]);
-
 
   const handleClear = useCallback(() => {
     setInputValue('');
-    dispatch(searchActions.setSearchResult([]))
-    dispatch(selectedMessagesActions.setSelectedMessages([]))
-  }, [dispatch])
+    dispatch(selectedMessagesActions.setSelectedMessages([]));
+  }, [dispatch]);
+
+  const memoizedWindowSize = useMemo(() => windowSize, [windowSize]);
 
   return (
     <>
-      <div className="flex justify-content-between">
-        <SelectButton invalid value={ value } onChange={ (e) => setValue(e.value) } options={ options } />
-        <div className="flex justify-content-between gap-4">
-          <InputText value={ inputValue } onChange={ (e) => setInputValue(e.target.value) }
-                     tooltip="Введите текст сообщения" tooltipOptions={ { position: 'bottom' } } />
-          <Button icon="pi pi-times" rounded text aria-label="Cancel" onClick={ handleClear } />
-        </div>
-      </div>
-
+      <FilterControls
+        value={value}
+        onChange={setValue}
+        inputValue={inputValue}
+        onInputChange={setInputValue}
+        onClear={handleClear}
+      />
       <div className="xl:my-6 sm:my-3">
-        { value === 'Таблица' ? (
-          <TableView windowSize={windowSize}/>
-        ) : (
-          <CardView windowSize={windowSize}/>
-        ) }
+        {value === 'Таблица' ? <TableView windowSize={memoizedWindowSize} /> : <CardView windowSize={memoizedWindowSize} />}
       </div>
     </>
   );
