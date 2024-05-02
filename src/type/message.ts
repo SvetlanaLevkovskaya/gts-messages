@@ -1,7 +1,7 @@
 export const MessageSeverity = {
-  CRITICAL: "Критическая",
-  HIGH: "Высокая",
-  LOW: "Низкая"
+  CRITICAL: 'Критическая',
+  HIGH: 'Высокая',
+  LOW: 'Низкая',
 };
 
 export interface Message {

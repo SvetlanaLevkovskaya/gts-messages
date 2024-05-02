@@ -9,4 +9,4 @@ export const calculateNumTableRows = (windowWidth: number): number => {
     default:
       return 2;
   }
-}
+};

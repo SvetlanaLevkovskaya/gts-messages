@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, useMemo} from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import FilterControls from '@components/filterControls/filterControls';
 import TableView from '@components/tableView/tableView';
 import CardView from '@components/cardView/cardView';
@@ -35,14 +35,15 @@ const RootPage = () => {
   return (
     <>
       <FilterControls
-        value={value}
-        onChange={setValue}
-        inputValue={inputValue}
-        onInputChange={setInputValue}
-        onClear={handleClear}
+        value={ value }
+        onChange={ setValue }
+        inputValue={ inputValue }
+        onInputChange={ setInputValue }
+        onClear={ handleClear }
       />
       <div className="xl:my-6 sm:my-3">
-        {value === 'Таблица' ? <TableView windowSize={memoizedWindowSize} /> : <CardView windowSize={memoizedWindowSize} />}
+        { value === 'Таблица' ? <TableView windowSize={ memoizedWindowSize } /> :
+          <CardView windowSize={ memoizedWindowSize } /> }
       </div>
     </>
   );

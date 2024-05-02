@@ -30,12 +30,12 @@ const MessageCard: FC<MessageCardProps> = ({ message, isSelected, onSelect, onKe
   return (
     <Card
       key={ message.id }
-      className={`flex border-1 xl:w-28rem xl:h-17rem sm:w-24rem sm:h-22rem ${isSelected ? 'selected' : ''} cursor-pointer`}
-      subTitle={`Дата: ${ message.date }`}
-      footer={`Сообщение: ${ truncatedMessage(message.message) }`}
-      onClick={() => onSelect(message)}
-      tabIndex={0}
-      onKeyDown={(e) => onKeyPress(e, message)}
+      className={ `flex border-1 xl:w-28rem xl:h-17rem sm:w-24rem sm:h-22rem ${ isSelected ? 'selected' : '' } cursor-pointer` }
+      subTitle={ `Дата: ${ message.date }` }
+      footer={ `Сообщение: ${ truncatedMessage(message.message) }` }
+      onClick={ () => onSelect(message) }
+      tabIndex={ 0 }
+      onKeyDown={ (e) => onKeyPress(e, message) }
     >
       <div className="flex align-content-center xl:flex-row sm:flex-column sm:justify-content-center sm:gap-4">
         <div className="flex flex-column xl:w-18rem sm:w-full">

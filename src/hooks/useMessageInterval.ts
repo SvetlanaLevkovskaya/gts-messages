@@ -8,13 +8,13 @@ export const useMessageInterval = () => {
   const [messagesIndex, setMessagesIndex] = useState(0);
 
   useEffect(() => {
-        MessageService.getMessages().then(data => {
-        setMessages(data);
-          if (data.length > 0) {
-            setMessagesToShow([data[0]]);
-            setMessagesIndex(1);
-          }
-      });
+    MessageService.getMessages().then(data => {
+      setMessages(data);
+      if (data.length > 0) {
+        setMessagesToShow([data[0]]);
+        setMessagesIndex(1);
+      }
+    });
   }, []);
 
   useEffect(() => {

@@ -16,7 +16,7 @@ export const MessageService = {
       {
         id: 2,
         date: formatMessageDate(),
-        severity:MessageSeverity.HIGH,
+        severity: MessageSeverity.HIGH,
         machinery: 'Сетевое хранилище',
         message: 'Превышен лимит на объем данных',
         responsible: 'Иванов Б.Б.',

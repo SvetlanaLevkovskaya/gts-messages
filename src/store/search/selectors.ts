@@ -1,8 +1,4 @@
-import {
-SearchState,
-  searchStateName,
-  StoreWithSearchState,
-} from './types';
+import { SearchState, searchStateName, StoreWithSearchState } from './types';
 import { Message } from '@type/message';
 
 const getState = (store: StoreWithSearchState): SearchState =>

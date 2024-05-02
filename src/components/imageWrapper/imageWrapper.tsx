@@ -16,9 +16,9 @@ const ImageWrapper: FC<ImageWrapperProps> = ({ src, alt, responsible }) => {
   return (
     <div className="flex lg:flex-column container">
       <div className="imageContainer">
-        <img src={src} alt={alt} className="image" onError={handleImageError} />
+        <img src={ src } alt={ alt } className="image" onError={ handleImageError } />
       </div>
-      <span>{responsible}</span>
+      <span>{ responsible }</span>
     </div>
   );
 };

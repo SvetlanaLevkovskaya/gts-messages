@@ -16,7 +16,7 @@ interface CardViewProps {
   }
 }
 
-const CardView: FC<CardViewProps> = ({windowSize}) => {
+const CardView: FC<CardViewProps> = ({ windowSize }) => {
   const [first, setFirst] = useState(0);
   const [rows, setRows] = useState(6);
   const searchResult = useSelector(getSearchResult);
@@ -30,7 +30,7 @@ const CardView: FC<CardViewProps> = ({windowSize}) => {
 
   const { startIndex, endIndex } = useMemo(() => ({
     startIndex: first,
-    endIndex: first + rows
+    endIndex: first + rows,
   }), [first, rows]);
 
   const numCardsPerRow = calculateNumCardsPerRow(windowSize.width);
