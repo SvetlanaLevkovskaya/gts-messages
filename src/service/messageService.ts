@@ -15,8 +15,8 @@ export const MessageService = {
       },
       {
         id: 2,
-        date:formatMessageDate(),
-        severity: MessageSeverity.HIGH,
+        date: formatMessageDate(),
+        severity:MessageSeverity.HIGH,
         machinery: 'Сетевое хранилище',
         message: 'Превышен лимит на объем данных',
         responsible: 'Иванов Б.Б.',
@@ -65,7 +65,7 @@ export const MessageService = {
       },
       {
         id: 7,
-        date:formatMessageDate(),
+        date: formatMessageDate(),
         severity: MessageSeverity.HIGH,
         machinery: 'Центральный сервер',
         message: 'Сервер перегружен',
@@ -75,7 +75,7 @@ export const MessageService = {
       },
       {
         id: 8,
-        date:formatMessageDate(),
+        date: formatMessageDate(),
         severity: MessageSeverity.CRITICAL,
         machinery: 'Система мониторинга',
         message: 'Сбой в системе мониторинга',
@@ -165,7 +165,7 @@ export const MessageService = {
       },
       {
         id: 17,
-        date:formatMessageDate(),
+        date: formatMessageDate(),
         severity: MessageSeverity.HIGH,
         machinery: 'Серверная стойка',
         message: 'Проблемы с системой охлаждения',
@@ -211,12 +211,10 @@ export const MessageService = {
         responsible: 'Смирнов А.А.',
         image: 'src/assets/react.svg',
       },
-
     ]
   },
 
   getMessages(): Promise<Message[]> {
     return Promise.resolve(this.getMessagesData());
   },
-
 };

@@ -1,5 +1,5 @@
 import { FC, SyntheticEvent } from 'react';
-import styles from './imageWrapper.module.scss';
+import './styles.scss'
 
 interface ImageWrapperProps {
   src: string;
@@ -14,9 +14,9 @@ const ImageWrapper: FC<ImageWrapperProps> = ({ src, alt, responsible }) => {
   };
 
   return (
-    <div className={`flex lg:flex-column ${styles.container}`}>
-      <div className={styles.imageContainer}>
-        <img src={src} alt={alt} className={styles.image} onError={handleImageError} />
+    <div className="flex lg:flex-column container">
+      <div className="imageContainer">
+        <img src={src} alt={alt} className="image" onError={handleImageError} />
       </div>
       <span>{responsible}</span>
     </div>

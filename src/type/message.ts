@@ -1,13 +1,13 @@
-export enum MessageSeverity {
-  CRITICAL = "Критическая",
-  HIGH = "Высокая",
-  LOW = "Низкая"
-}
+export const MessageSeverity = {
+  CRITICAL: "Критическая",
+  HIGH: "Высокая",
+  LOW: "Низкая"
+};
 
 export interface Message {
   id: number;
   date: string;
-  severity: MessageSeverity;
+  severity: keyof typeof MessageSeverity | string;
   machinery: string;
   message: string;
   responsible: string;

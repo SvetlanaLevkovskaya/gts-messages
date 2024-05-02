@@ -1,21 +1,22 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { setSearchResults } from '../store/slice/searchSlice.ts';
-import { messagesState } from '../store/slice/messagesSlice.ts';
-import { useAppDispatch } from '../store/store.ts';
+import { useAppDispatch } from '../store';
+import { getMessages } from '../store/messages/selectors.ts';
+import { searchActions } from '../store/search';
 
 export const useFilteredMessage = (searchKeyword: string) => {
-  const { messages } = useSelector(messagesState);
+  const messages = useSelector(getMessages);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const filteredMessages = messages.filter((message) => {
-      return message.message.toLowerCase().includes(searchKeyword.trim().toLowerCase());
-    });
-    dispatch(setSearchResults(filteredMessages));
-    return () => {
-      dispatch(setSearchResults([]));
-    };
+    if (messages) {
+      const filteredMessages = messages.filter((message) => {
+        return message.message.toLowerCase().includes(searchKeyword.trim().toLowerCase());
+      });
+      dispatch(searchActions.setSearchResult(filteredMessages));
+    } else {
+      dispatch(searchActions.setSearchResult([]));
+    }
   }, [searchKeyword, dispatch, messages]);
 
   return;

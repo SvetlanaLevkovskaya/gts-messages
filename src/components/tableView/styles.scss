@@ -1,0 +1,28 @@
+.p-datatable-table {
+  border: 1px solid #323130;
+
+  .p-datatable-thead {
+    > tr {
+      > th {
+        font-weight: 700;
+        background: #ccccc9;
+
+        &:not(:last-child) {
+          border-right: 1px solid #323130;
+        }
+      }
+    }
+  }
+
+  .p-datatable-tbody {
+    > tr {
+      &:nth-child(odd) {
+        background: #edebe9;
+      }
+
+      > td:not(:last-child) {
+        border-right: 1px solid #323130;
+      }
+    }
+  }
+}
