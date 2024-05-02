@@ -1,14 +1,13 @@
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Paginator, PaginatorPageChangeEvent } from 'primereact/paginator';
-import { getSearchResult } from '../../store/search/selectors.ts';
-import { useAppDispatch } from '../../store';
-import { selectedMessagesActions } from '../../store/selectedMessages';
-import { getSelectedMessages } from '../../store/selectedMessages/selectors.ts';
-import { Message } from '../../type/message.ts';
-import { calculateNumCardsPerRow } from '../../lib/utils/calculateNumCardsPerRow.ts';
-import MessageCard from './messageCard/messageCard.tsx';
-
+import MessageCard from '@components/cardView/messageCard/messageCard';
+import { useAppDispatch } from '@store/index';
+import { getSearchResult } from '@store/search/selectors.ts';
+import { getSelectedMessages } from '@store/selectedMessages/selectors';
+import { selectedMessagesActions } from '@store/selectedMessages';
+import { calculateNumCardsPerRow } from '@lib/utils/calculateNumCardsPerRow';
+import { Message } from '@type/message';
 
 interface CardViewProps {
   windowSize: {

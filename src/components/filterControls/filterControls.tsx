@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { SelectButton } from 'primereact/selectbutton';
-import { options } from '../../modules/constants.ts';
-import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
+import { InputText } from 'primereact/inputtext';
+import { options } from '@modules/constants';
 
 interface FilterControlsProps {
   value:  string;

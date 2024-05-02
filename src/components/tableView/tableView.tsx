@@ -1,15 +1,15 @@
 import { DataTable, DataTableSelectionMultipleChangeEvent } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { FC, useEffect, useState } from 'react';
-import { calculateNumTableRows } from '../../lib/utils/calculateNumTableRows.ts';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../../store';
-import { Message } from '../../type/message.ts';
+import { useAppDispatch } from '@store/index';
+import { getSearchResult } from '@store/search/selectors';
+import { getSelectedMessages } from '@store/selectedMessages/selectors';
+import { searchActions } from '@store/search';
+import { selectedMessagesActions } from '@store/selectedMessages';
+import { calculateNumTableRows } from '@lib/utils/calculateNumTableRows';
+import { Message } from '@type/message';
 import './styles.scss'
-import { getSearchResult } from '../../store/search/selectors.ts';
-import { searchActions } from '../../store/search';
-import { getSelectedMessages } from '../../store/selectedMessages/selectors.ts';
-import { selectedMessagesActions } from '../../store/selectedMessages';
 
 interface TableViewProps {
   windowSize: {

@@ -1,5 +1,5 @@
-import { Message, MessageSeverity } from '../type/message.ts';
-import { formatMessageDate } from '../lib/utils/formatMessageDate.ts';
+import { formatMessageDate } from '@lib/utils/formatMessageDate';
+import { Message, MessageSeverity } from '@type/message';
 
 export const MessageService = {
   getMessagesData() {

@@ -1,4 +1,4 @@
-import { Message } from '../../type/message.ts';
+import { Message } from '@type/message';
 
 export const messagesStateName = 'messages';
 
@@ -9,4 +9,3 @@ export type MessagesState = {
 export type StoreWithMessageState = {
   [messagesStateName]: MessagesState;
 };
-

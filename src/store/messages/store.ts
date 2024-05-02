@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Message } from '../../type/message.ts';
-import { initialMessageState } from './constant.ts';
-import { messagesStateName } from './types.ts';
+import { initialMessageState } from './constant';
+import { messagesStateName } from './types';
+import { Message } from '@type/message';
 
 export const messagesSlice = createSlice({
   name: messagesStateName,

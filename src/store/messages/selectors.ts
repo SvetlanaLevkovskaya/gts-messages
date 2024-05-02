@@ -1,5 +1,5 @@
-import { MessagesState, messagesStateName, StoreWithMessageState } from './types.ts';
-import { Message } from '../../type/message.ts';
+import { MessagesState, messagesStateName, StoreWithMessageState } from './types';
+import { Message } from '@type/message';
 
 const getState = (store: StoreWithMessageState): MessagesState =>
   store[messagesStateName];

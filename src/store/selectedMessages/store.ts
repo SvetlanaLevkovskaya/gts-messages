@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Message } from '../../type/message.ts';
-import { initialSelectedMessageState } from './constant.ts';
-import { selectedMessagesStateName } from './types.ts';
+import { initialSelectedMessageState } from './constant';
+import { selectedMessagesStateName } from './types';
+import { Message } from '@type/message';
 
 const selectedMessagesSlice = createSlice({
   name: selectedMessagesStateName,

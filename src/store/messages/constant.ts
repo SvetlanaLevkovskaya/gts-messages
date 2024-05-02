@@ -1,4 +1,4 @@
-import { MessagesState } from './types.ts';
+import { MessagesState } from './types';
 
 export const initialMessageState: MessagesState = {
   messages: [],

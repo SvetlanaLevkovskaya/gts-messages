@@ -1,8 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Message } from '../../type/message.ts';
-import { initialSearchState } from './constant.ts';
-import { searchStateName } from './types.ts';
-
+import { initialSearchState } from './constant';
+import { searchStateName } from './types';
+import { Message } from '@type/message';
 
 export const searchSlice = createSlice({
   name: searchStateName,

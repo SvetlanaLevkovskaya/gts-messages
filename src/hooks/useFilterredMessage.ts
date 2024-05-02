@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../store';
-import { getMessages } from '../store/messages/selectors.ts';
-import { searchActions } from '../store/search';
+import { useAppDispatch } from '@store/index';
+import { getMessages } from '@store/messages/selectors';
+import { searchActions } from '@store/search';
 
 export const useFilteredMessage = (searchKeyword: string) => {
   const messages = useSelector(getMessages);

@@ -1,16 +1,15 @@
 import { useCallback, useEffect, useState, useMemo} from 'react';
-import { useMessageInterval } from '../hooks/useMessageInterval.ts';
-import { useDebounce } from '../hooks/useDebounce.ts';
-import { useFilteredMessage } from '../hooks/useFilterredMessage.ts';
-import { useAppDispatch } from '../store';
-import { options } from './constants.ts';
-import { messagesActions } from '../store/messages';
-import { selectedMessagesActions } from '../store/selectedMessages';
-import { useWindowSize } from '../hooks/useWindowSize.ts';
-import TableView from '../components/tableView/tableView.tsx';
-import CardView from '../components/cardView/cardView.tsx';
-import FilterControls from '../components/filterControls/filterControls.tsx';
-
+import FilterControls from '@components/filterControls/filterControls';
+import TableView from '@components/tableView/tableView';
+import CardView from '@components/cardView/cardView';
+import { useAppDispatch } from '@store/index';
+import { messagesActions } from '@store/messages';
+import { selectedMessagesActions } from '@store/selectedMessages';
+import { useDebounce } from '@hooks/useDebounce';
+import { useMessageInterval } from '@hooks/useMessageInterval';
+import { useWindowSize } from '@hooks/useWindowSize';
+import { useFilteredMessage } from '@hooks/useFilterredMessage';
+import { options } from '@modules/constants';
 
 const RootPage = () => {
   const [value, setValue] = useState(options[0]);

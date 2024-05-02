@@ -2,8 +2,8 @@ import {
 SearchState,
   searchStateName,
   StoreWithSearchState,
-} from './types.ts';
-import { Message } from '../../type/message.ts';
+} from './types';
+import { Message } from '@type/message';
 
 const getState = (store: StoreWithSearchState): SearchState =>
   store[searchStateName];

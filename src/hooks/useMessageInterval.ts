@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { MessageService } from '../service/messageService.ts';
-import { Message } from '../type/message.ts';
+import { MessageService } from '@service/messageService';
+import { Message } from '@type/message';
 
 export const useMessageInterval = () => {
   const [messages, setMessages] = useState<Message[]>([]);

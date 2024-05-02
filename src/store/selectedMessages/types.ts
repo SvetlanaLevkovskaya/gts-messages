@@ -1,4 +1,4 @@
-import { Message } from '../../type/message.ts';
+import { Message } from '@type/message';
 
 export const selectedMessagesStateName = 'selectedMessages';
 

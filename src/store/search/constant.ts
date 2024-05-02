@@ -1,7 +1,5 @@
-import { SearchState } from './types.ts';
+import { SearchState } from './types';
 
 export const initialSearchState: SearchState = {
   searchResult: [],
 };
-
-

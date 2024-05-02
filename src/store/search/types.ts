@@ -1,4 +1,4 @@
-import { Message } from '../../type/message.ts';
+import { Message } from '@type/message';
 
 export const searchStateName = 'search';
 
@@ -9,5 +9,3 @@ export type SearchState = {
 export type StoreWithSearchState = {
   [searchStateName]: SearchState;
 };
-
-

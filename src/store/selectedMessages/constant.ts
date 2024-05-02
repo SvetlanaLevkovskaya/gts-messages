@@ -1,4 +1,4 @@
-import { SelectedMessagesState } from './types.ts';
+import { SelectedMessagesState } from './types';
 
 export const initialSelectedMessageState: SelectedMessagesState = {
   selectedMessages: []

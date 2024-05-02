@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { Card } from 'primereact/card';
 import { Tag } from 'primereact/tag';
-import { Message } from '../../../type/message.ts';
-import { truncatedMessage } from '../../../lib/utils/truncatedMessage.ts';
-import ImageWrapper from '../../imageWrapper/imageWrapper.tsx';
+import { Message } from '@type/message';
+import ImageWrapper from '@components/imageWrapper/imageWrapper';
+import { truncatedMessage } from '@lib/utils/truncatedMessage';
 import './styles.scss'
 
 interface MessageCardProps {
