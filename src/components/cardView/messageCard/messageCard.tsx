@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Card } from 'primereact/card';
 import { Tag } from 'primereact/tag';
-import { Message } from '@type/message';
+import { Message, MessageSeverity } from '@type/message';
 import ImageWrapper from '@components/imageWrapper/imageWrapper';
 import { truncatedMessage } from '@lib/utils/truncatedMessage';
 import './styles.scss'
@@ -14,13 +14,13 @@ interface MessageCardProps {
 }
 
 const MessageCard: FC<MessageCardProps> = ({ message, isSelected, onSelect, onKeyPress }) => {
-  const renderSeverityTag = (severity: string) => {
+  const renderSeverityTag = (severity:  string) => {
     switch (severity) {
-      case 'LOW':
+      case MessageSeverity.LOW:
         return <Tag severity="info" icon="pi pi-info-circle" />;
-      case 'HIGH':
+      case MessageSeverity.HIGH:
         return <Tag severity="warning" icon="pi pi-exclamation-triangle" />;
-      case 'CRITICAL':
+      case MessageSeverity.CRITICAL:
         return <Tag severity="danger" icon="pi pi-times" />;
       default:
         return null;

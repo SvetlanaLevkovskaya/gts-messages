@@ -11,7 +11,7 @@ export const MessageService = {
         machinery: 'Сетевое хранилище',
         message: 'При работе сетевого хранилища возникла серьезная проблема, которая требует немедленного вмешательства. Недоступность хранилища может привести к потере данных и существенному снижению производительности системы. Необходимо принять срочные меры для восстановления работоспособности хранилища и предотвращения возможных последствий.',
         responsible: 'Щербакова С.В.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
       },
       {
         id: 2,
@@ -20,7 +20,7 @@ export const MessageService = {
         machinery: 'Сетевое хранилище',
         message: 'Превышен лимит на объем данных',
         responsible: 'Иванов Б.Б.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
 
       },
       {
@@ -30,7 +30,7 @@ export const MessageService = {
         machinery: 'Почтовый сервер',
         message: 'Подозрительная активность в почтовом сервере',
         responsible: 'Петров В.В.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
 
       },
       {
@@ -40,7 +40,7 @@ export const MessageService = {
         machinery: 'Система резервного копирования',
         message: 'Сбой в резервном копировании',
         responsible: 'Сидоров Г.Г.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
 
       },
       {
@@ -50,7 +50,7 @@ export const MessageService = {
         machinery: 'База данных',
         message: 'Потеря связи с базой данных',
         responsible: 'Козлов Д.Д.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
 
       },
       {
@@ -60,7 +60,7 @@ export const MessageService = {
         machinery: 'Сетевой принтер',
         message: 'Неисправность сетевого принтера',
         responsible: 'Николаев Е.Е.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
 
       },
       {
@@ -70,7 +70,7 @@ export const MessageService = {
         machinery: 'Центральный сервер',
         message: 'Сервер перегружен',
         responsible: 'Борисов А.А.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
 
       },
       {
@@ -80,7 +80,7 @@ export const MessageService = {
         machinery: 'Система мониторинга',
         message: 'Сбой в системе мониторинга',
         responsible: 'Григорьев В.В.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
 
       },
       {
@@ -90,7 +90,7 @@ export const MessageService = {
         machinery: 'Файловый сервер',
         message: 'Проблемы с доступом к файловому серверу',
         responsible: 'Федоров К.К.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
 
       },
       {
@@ -100,7 +100,7 @@ export const MessageService = {
         machinery: 'Брандмауэр',
         message: 'Нарушение правил брандмауэра',
         responsible: 'Михайлов П.П.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
 
       },
       {
@@ -110,7 +110,7 @@ export const MessageService = {
         machinery: 'Монитор',
         message: 'Неисправность дисплея',
         responsible: 'Сергеев А.А.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
 
       },
       {
@@ -120,7 +120,7 @@ export const MessageService = {
         machinery: 'Роутер',
         message: 'Сбой в работе маршрутизатора',
         responsible: 'Васильев Е.Е.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
 
       },
       {
@@ -130,7 +130,7 @@ export const MessageService = {
         machinery: 'Кластер серверов',
         message: 'Оверлоад в кластере',
         responsible: 'Александров И.И.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
 
       },
       {
@@ -140,7 +140,7 @@ export const MessageService = {
         machinery: 'Сканер',
         message: 'Сканер не реагирует на команды',
         responsible: 'Павлов К.К.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
 
       },
       {
@@ -150,7 +150,7 @@ export const MessageService = {
         machinery: 'Видеокарта',
         message: 'Перегрев видеокарты',
         responsible: 'Дмитриев М.М.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
 
       },
       {
@@ -160,7 +160,7 @@ export const MessageService = {
         machinery: 'Автономная система питания',
         message: 'Сработала аварийка',
         responsible: 'Фролов С.С.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
 
       },
       {
@@ -170,7 +170,7 @@ export const MessageService = {
         machinery: 'Серверная стойка',
         message: 'Проблемы с системой охлаждения',
         responsible: 'Тарасов Л.Л.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
 
       },
       {
@@ -180,7 +180,7 @@ export const MessageService = {
         machinery: 'ИБП',
         message: 'Сбой в работе источника бесперебойного питания',
         responsible: 'Герасимов А.А.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
 
       },
       {
@@ -190,7 +190,7 @@ export const MessageService = {
         machinery: 'Маршрутизатор',
         message: 'Ошибки в конфигурации маршрутизатора',
         responsible: 'Кириллов П.П.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
 
       },
       {
@@ -200,7 +200,7 @@ export const MessageService = {
         machinery: 'Сетевое хранилище',
         message: 'Сбой в работе сетевого хранилища',
         responsible: 'Щербаков В.В.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
       },
       {
         id: 21,
@@ -209,7 +209,7 @@ export const MessageService = {
         machinery: 'Сервер Вегас',
         message: 'Сервер Вегас недоступен',
         responsible: 'Смирнов А.А.',
-        image: 'src/assets/react.svg',
+        image: './src/assets/react.svg',
       },
     ]
   },
