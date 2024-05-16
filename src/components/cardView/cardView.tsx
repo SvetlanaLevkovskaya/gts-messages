@@ -1,4 +1,4 @@
-import { FC, useCallback, useMemo, useState, KeyboardEvent } from 'react';
+import { FC, useCallback, useMemo, useState, KeyboardEvent, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Paginator, PaginatorPageChangeEvent } from 'primereact/paginator';
 import MessageCard from '@components/cardView/messageCard/messageCard';
@@ -34,6 +34,10 @@ const CardView: FC<CardViewProps> = ({ windowSize }) => {
   }), [first, rows]);
 
   const numCardsPerRow = calculateNumCardsPerRow(windowSize.width);
+
+  useEffect(() => {
+    setRows(numCardsPerRow);
+  }, [numCardsPerRow]);
 
   const handleCardSelect = useCallback((message: Message) => {
     dispatch(selectedMessagesActions.toggleSelectedMessages(message));
