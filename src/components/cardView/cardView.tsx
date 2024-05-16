@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import { FC, useCallback, useMemo, useState, KeyboardEvent } from 'react';
 import { useSelector } from 'react-redux';
 import { Paginator, PaginatorPageChangeEvent } from 'primereact/paginator';
 import MessageCard from '@components/cardView/messageCard/messageCard';
@@ -18,7 +18,7 @@ interface CardViewProps {
 
 const CardView: FC<CardViewProps> = ({ windowSize }) => {
   const [first, setFirst] = useState(0);
-  const [rows, setRows] = useState(6);
+  const [rows, setRows] = useState(0);
   const searchResult = useSelector(getSearchResult);
   const selectedMessages = useSelector(getSelectedMessages);
   const dispatch = useAppDispatch();
@@ -35,15 +35,11 @@ const CardView: FC<CardViewProps> = ({ windowSize }) => {
 
   const numCardsPerRow = calculateNumCardsPerRow(windowSize.width);
 
-  useEffect(() => {
-    setRows(numCardsPerRow);
-  }, [numCardsPerRow]);
-
   const handleCardSelect = useCallback((message: Message) => {
     dispatch(selectedMessagesActions.toggleSelectedMessages(message));
   }, [dispatch]);
 
-  const handleKeyPress = useCallback((event: React.KeyboardEvent<HTMLDivElement>, message: Message) => {
+  const handleKeyPress = useCallback((event: KeyboardEvent<HTMLDivElement>, message: Message) => {
     if (event.key === ' ') {
       dispatch(selectedMessagesActions.toggleSelectedMessages(message));
     }
@@ -63,7 +59,7 @@ const CardView: FC<CardViewProps> = ({ windowSize }) => {
           />
         )) }
       </div>
-      <Paginator first={ first } rows={ rows } totalRecords={ searchResult?.length } onPageChange={ onPageChange }
+      <Paginator first={ first } rows={ numCardsPerRow } totalRecords={ searchResult?.length } onPageChange={ onPageChange }
                  leftContent template={ { layout: 'PageLinks' } } />
     </div>
   );
