@@ -1,4 +1,11 @@
-import { FC, useCallback, useMemo, useState, KeyboardEvent, useEffect } from 'react';
+import {
+  FC,
+  useCallback,
+  useMemo,
+  useState,
+  KeyboardEvent,
+  useEffect,
+} from 'react';
 import { useSelector } from 'react-redux';
 import { Paginator, PaginatorPageChangeEvent } from 'primereact/paginator';
 import MessageCard from '@components/cardView/messageCard/messageCard';
@@ -13,7 +20,7 @@ interface CardViewProps {
   windowSize: {
     width: number;
     height: number;
-  }
+  };
 }
 
 const CardView: FC<CardViewProps> = ({ windowSize }) => {
@@ -28,10 +35,13 @@ const CardView: FC<CardViewProps> = ({ windowSize }) => {
     setRows(event.rows);
   }, []);
 
-  const { startIndex, endIndex } = useMemo(() => ({
-    startIndex: first,
-    endIndex: first + rows,
-  }), [first, rows]);
+  const { startIndex, endIndex } = useMemo(
+    () => ({
+      startIndex: first,
+      endIndex: first + rows,
+    }),
+    [first, rows],
+  );
 
   const numCardsPerRow = calculateNumCardsPerRow(windowSize.width);
 
@@ -39,32 +49,47 @@ const CardView: FC<CardViewProps> = ({ windowSize }) => {
     setRows(numCardsPerRow);
   }, [numCardsPerRow]);
 
-  const handleCardSelect = useCallback((message: Message) => {
-    dispatch(selectedMessagesActions.toggleSelectedMessages(message));
-  }, [dispatch]);
-
-  const handleKeyPress = useCallback((event: KeyboardEvent<HTMLDivElement>, message: Message) => {
-    if (event.key === ' ') {
+  const handleCardSelect = useCallback(
+    (message: Message) => {
       dispatch(selectedMessagesActions.toggleSelectedMessages(message));
-    }
-  }, [dispatch]);
+    },
+    [dispatch],
+  );
+
+  const handleKeyPress = useCallback(
+    (event: KeyboardEvent<HTMLDivElement>, message: Message) => {
+      if (event.key === ' ') {
+        dispatch(selectedMessagesActions.toggleSelectedMessages(message));
+      }
+    },
+    [dispatch],
+  );
 
   return (
     <div className="flex flex-column xl:gap-6 sm:gap-2">
       <div
-        className={ `flex flex-row column-gap-4 row-gap-4 flex-wrap align-items-center xl:justify-content-between sm:justify-content-center` }>
-        { searchResult?.slice(startIndex, endIndex).map((message) => (
-          <MessageCard
-            key={ message.id }
-            message={ message }
-            isSelected={ selectedMessages.includes(message) }
-            onSelect={ handleCardSelect }
-            onKeyPress={ handleKeyPress }
-          />
-        )) }
+        className={`flex flex-row column-gap-4 row-gap-4 flex-wrap align-items-center xl:justify-content-between sm:justify-content-center`}
+      >
+        {searchResult
+          ?.slice(startIndex, endIndex)
+          .map((message) => (
+            <MessageCard
+              key={message.id}
+              message={message}
+              isSelected={selectedMessages.includes(message)}
+              onSelect={handleCardSelect}
+              onKeyPress={handleKeyPress}
+            />
+          ))}
       </div>
-      <Paginator first={ first } rows={ numCardsPerRow } totalRecords={ searchResult?.length } onPageChange={ onPageChange }
-                 leftContent template={ { layout: 'PageLinks' } } />
+      <Paginator
+        first={first}
+        rows={numCardsPerRow}
+        totalRecords={searchResult?.length}
+        onPageChange={onPageChange}
+        leftContent
+        template={{ layout: 'PageLinks' }}
+      />
     </div>
   );
 };

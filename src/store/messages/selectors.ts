@@ -1,4 +1,8 @@
-import { MessagesState, messagesStateName, StoreWithMessageState } from './types';
+import {
+  MessagesState,
+  messagesStateName,
+  StoreWithMessageState,
+} from './types';
 import { Message } from '@type/message';
 
 const getState = (store: StoreWithMessageState): MessagesState =>

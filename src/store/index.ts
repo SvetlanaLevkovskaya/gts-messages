@@ -2,7 +2,10 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import { messagesReducer, messagesStateName } from './messages';
 import { searchReducer, searchStateName } from './search';
-import { selectedMessagesReducer, selectedMessagesStateName } from './selectedMessages';
+import {
+  selectedMessagesReducer,
+  selectedMessagesStateName,
+} from './selectedMessages';
 
 export const store = configureStore({
   reducer: {

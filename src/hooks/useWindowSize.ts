@@ -5,7 +5,10 @@ interface WindowSize {
   height: number;
 }
 
-const initialWindowSize: WindowSize = { width: window.innerWidth, height: window.innerHeight };
+const initialWindowSize: WindowSize = {
+  width: window.innerWidth,
+  height: window.innerHeight,
+};
 
 export const useWindowSize = (): WindowSize => {
   const [windowSize, setWindowSize] = useState<WindowSize>(initialWindowSize);

@@ -11,7 +11,9 @@ export const useFilteredMessage = (searchKeyword: string) => {
   useEffect(() => {
     if (messages) {
       const filteredMessages = messages.filter((message) => {
-        return message.message.toLowerCase().includes(searchKeyword.trim().toLowerCase());
+        return message.message
+          .toLowerCase()
+          .includes(searchKeyword.trim().toLowerCase());
       });
       dispatch(searchActions.setSearchResult(filteredMessages));
     } else {

@@ -12,19 +12,35 @@ interface FilterControlsProps {
   onClear: () => void;
 }
 
-const FilterControls: FC<FilterControlsProps> = ({ value, onChange, inputValue, onInputChange, onClear }) => {
-
+const FilterControls: FC<FilterControlsProps> = ({
+  value,
+  onChange,
+  inputValue,
+  onInputChange,
+  onClear,
+}) => {
   return (
     <div className="flex justify-content-between">
-      <SelectButton invalid value={ value } onChange={ (e) => onChange(e.value) } options={ options } />
+      <SelectButton
+        invalid
+        value={value}
+        onChange={(e) => onChange(e.value)}
+        options={options}
+      />
       <div className="flex justify-content-between gap-4">
         <InputText
-          value={ inputValue }
-          onChange={ (e) => onInputChange(e.target.value) }
+          value={inputValue}
+          onChange={(e) => onInputChange(e.target.value)}
           tooltip="Введите текст сообщения"
-          tooltipOptions={ { position: 'bottom' } }
+          tooltipOptions={{ position: 'bottom' }}
         />
-        <Button icon="pi pi-times" rounded text aria-label="Cancel" onClick={ onClear } />
+        <Button
+          icon="pi pi-times"
+          rounded
+          text
+          aria-label="Cancel"
+          onClick={onClear}
+        />
       </div>
     </div>
   );

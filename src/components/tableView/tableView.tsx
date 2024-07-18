@@ -1,4 +1,7 @@
-import { DataTable, DataTableSelectionMultipleChangeEvent } from 'primereact/datatable';
+import {
+  DataTable,
+  DataTableSelectionMultipleChangeEvent,
+} from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { FC, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -9,13 +12,13 @@ import { searchActions } from '@store/search';
 import { selectedMessagesActions } from '@store/selectedMessages';
 import { calculateNumTableRows } from '@lib/utils/calculateNumTableRows';
 import { Message } from '@type/message';
-import './styles.scss'
+import './styles.scss';
 
 interface TableViewProps {
   windowSize: {
     width: number;
     height: number;
-  }
+  };
 }
 
 const TableView: FC<TableViewProps> = ({ windowSize }) => {
@@ -30,30 +33,37 @@ const TableView: FC<TableViewProps> = ({ windowSize }) => {
 
   useEffect(() => {
     if (searchResult && searchResult.length > 0 && !selectedMessages) {
-      dispatch(selectedMessagesActions.setSelectedMessages(searchResult.map((result) => result)));
-      dispatch(searchActions.setSearchResult(searchResult.map((result) => result)))
+      dispatch(
+        selectedMessagesActions.setSelectedMessages(
+          searchResult.map((result) => result),
+        ),
+      );
+      dispatch(
+        searchActions.setSearchResult(searchResult.map((result) => result)),
+      );
     }
   }, [dispatch, searchResult, selectedMessages]);
 
-  const handleSelectionChange = (e: DataTableSelectionMultipleChangeEvent<Message[]>) => {
+  const handleSelectionChange = (
+    e: DataTableSelectionMultipleChangeEvent<Message[]>,
+  ) => {
     const messages = e.value;
     dispatch(selectedMessagesActions.setSelectedMessages(messages));
   };
 
   return (
     <DataTable
-      value={ searchResult || [] }
+      value={searchResult || []}
       size="small"
       paginator
       paginatorLeft
-      paginatorTemplate={ { layout: 'PageLinks' } }
+      paginatorTemplate={{ layout: 'PageLinks' }}
       stripedRows
-      rows={ rows }
+      rows={rows}
       dataKey="id"
-      onSelectionChange={ handleSelectionChange }
-      selection={ selectedMessages }
+      onSelectionChange={handleSelectionChange}
+      selection={selectedMessages}
       selectionMode="multiple"
-
     >
       <Column field="date" header="Дата" />
       <Column field="severity" header="Важность" />

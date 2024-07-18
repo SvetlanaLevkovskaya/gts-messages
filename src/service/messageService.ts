@@ -9,7 +9,8 @@ export const MessageService = {
         date: formatMessageDate(),
         severity: MessageSeverity.CRITICAL,
         machinery: 'Сетевое хранилище',
-        message: 'При работе сетевого хранилища возникла серьезная проблема, которая требует немедленного вмешательства. Недоступность хранилища может привести к потере данных и существенному снижению производительности системы. Необходимо принять срочные меры для восстановления работоспособности хранилища и предотвращения возможных последствий.',
+        message:
+          'При работе сетевого хранилища возникла серьезная проблема, которая требует немедленного вмешательства. Недоступность хранилища может привести к потере данных и существенному снижению производительности системы. Необходимо принять срочные меры для восстановления работоспособности хранилища и предотвращения возможных последствий.',
         responsible: 'Щербакова С.В.',
         image: '/react.svg',
       },
@@ -21,7 +22,6 @@ export const MessageService = {
         message: 'Превышен лимит на объем данных',
         responsible: 'Иванов Б.Б.',
         image: '/react.svg',
-
       },
       {
         id: 3,
@@ -31,7 +31,6 @@ export const MessageService = {
         message: 'Подозрительная активность в почтовом сервере',
         responsible: 'Петров В.В.',
         image: '/react.svg',
-
       },
       {
         id: 4,
@@ -41,7 +40,6 @@ export const MessageService = {
         message: 'Сбой в резервном копировании',
         responsible: 'Сидоров Г.Г.',
         image: '/react.svg',
-
       },
       {
         id: 5,
@@ -51,7 +49,6 @@ export const MessageService = {
         message: 'Потеря связи с базой данных',
         responsible: 'Козлов Д.Д.',
         image: '/react.svg',
-
       },
       {
         id: 6,
@@ -61,7 +58,6 @@ export const MessageService = {
         message: 'Неисправность сетевого принтера',
         responsible: 'Николаев Е.Е.',
         image: '/react.svg',
-
       },
       {
         id: 7,
@@ -71,7 +67,6 @@ export const MessageService = {
         message: 'Сервер перегружен',
         responsible: 'Борисов А.А.',
         image: '/react.svg',
-
       },
       {
         id: 8,
@@ -81,7 +76,6 @@ export const MessageService = {
         message: 'Сбой в системе мониторинга',
         responsible: 'Григорьев В.В.',
         image: '/react.svg',
-
       },
       {
         id: 9,
@@ -91,7 +85,6 @@ export const MessageService = {
         message: 'Проблемы с доступом к файловому серверу',
         responsible: 'Федоров К.К.',
         image: '/react.svg',
-
       },
       {
         id: 10,
@@ -101,7 +94,6 @@ export const MessageService = {
         message: 'Нарушение правил брандмауэра',
         responsible: 'Михайлов П.П.',
         image: '/react.svg',
-
       },
       {
         id: 11,
@@ -111,7 +103,6 @@ export const MessageService = {
         message: 'Неисправность дисплея',
         responsible: 'Сергеев А.А.',
         image: '/react.svg',
-
       },
       {
         id: 12,
@@ -121,7 +112,6 @@ export const MessageService = {
         message: 'Сбой в работе маршрутизатора',
         responsible: 'Васильев Е.Е.',
         image: '/react.svg',
-
       },
       {
         id: 13,
@@ -131,7 +121,6 @@ export const MessageService = {
         message: 'Оверлоад в кластере',
         responsible: 'Александров И.И.',
         image: '/react.svg',
-
       },
       {
         id: 14,
@@ -141,7 +130,6 @@ export const MessageService = {
         message: 'Сканер не реагирует на команды',
         responsible: 'Павлов К.К.',
         image: '/react.svg',
-
       },
       {
         id: 15,
@@ -151,7 +139,6 @@ export const MessageService = {
         message: 'Перегрев видеокарты',
         responsible: 'Дмитриев М.М.',
         image: '/react.svg',
-
       },
       {
         id: 16,
@@ -161,7 +148,6 @@ export const MessageService = {
         message: 'Сработала аварийка',
         responsible: 'Фролов С.С.',
         image: '/react.svg',
-
       },
       {
         id: 17,
@@ -171,7 +157,6 @@ export const MessageService = {
         message: 'Проблемы с системой охлаждения',
         responsible: 'Тарасов Л.Л.',
         image: '/react.svg',
-
       },
       {
         id: 18,
@@ -181,7 +166,6 @@ export const MessageService = {
         message: 'Сбой в работе источника бесперебойного питания',
         responsible: 'Герасимов А.А.',
         image: '/react.svg',
-
       },
       {
         id: 19,
@@ -191,7 +175,6 @@ export const MessageService = {
         message: 'Ошибки в конфигурации маршрутизатора',
         responsible: 'Кириллов П.П.',
         image: '/react.svg',
-
       },
       {
         id: 20,
@@ -211,7 +194,7 @@ export const MessageService = {
         responsible: 'Смирнов А.А.',
         image: '/react.svg',
       },
-    ]
+    ];
   },
 
   getMessages(): Promise<Message[]> {
