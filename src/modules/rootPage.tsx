@@ -41,7 +41,7 @@ const RootPage = () => {
         onInputChange={setInputValue}
         onClear={handleClear}
       />
-      <div className="xl:my-6 sm:my-3">
+      <div className="my-3 xl:my-6 ">
         {value === 'Таблица' ? (
           <TableView windowSize={memoizedWindowSize} />
         ) : (

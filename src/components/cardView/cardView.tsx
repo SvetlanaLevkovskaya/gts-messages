@@ -68,7 +68,7 @@ const CardView: FC<CardViewProps> = ({ windowSize }) => {
   return (
     <div className="flex flex-column xl:gap-6 sm:gap-2">
       <div
-        className={`flex flex-row column-gap-4 row-gap-4 flex-wrap align-items-center xl:justify-content-between sm:justify-content-center`}
+        className={`flex flex-row column-gap-4 row-gap-4 flex-wrap align-items-center justify-content-center`}
       >
         {searchResult
           ?.slice(startIndex, endIndex)
